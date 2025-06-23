@@ -4,101 +4,179 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>GOS - Governance of Cyber Systems</title>
-    <link href="https://fonts.googleapis.com/css?family=Montserrat:400,700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Orbitron:700|Montserrat:400,600&display=swap" rel="stylesheet">
     <style>
+        :root {
+            --primary-bg: #0b1225;
+            --glass-bg: rgba(21, 32, 57, 0.82);
+            --accent: #57d6ff;
+            --cyber: #0ff8e1;
+            --text: #eaf1fa;
+            --highlight: #334475;
+            --neon-shadow: 0 0 16px #57d6ff, 0 0 8px #232e46;
+        }
+
         body {
             margin: 0;
             font-family: 'Montserrat', Arial, sans-serif;
-            background: #101933;
-            color: #eaf1fa;
+            background: linear-gradient(135deg, #0b1225 0%, #182142 100%);
+            color: var(--text);
         }
+
+        .container {
+            max-width: 1100px;
+            margin: 0 auto;
+            padding: 36px 18px 80px 18px;
+        }
+
         header {
-            background: #0c1424;
-            padding: 32px 0 16px 0;
+            position: relative;
+            background: var(--glass-bg);
+            border-radius: 0 0 22px 22px;
+            box-shadow: 0 4px 32px rgba(0,0,0,0.13);
+            padding: 44px 0 20px 0;
             text-align: center;
-            border-bottom: 2px solid #233a64;
         }
-        .logo {
-            font-size: 2.6rem;
-            font-weight: bold;
-            letter-spacing: 2px;
-            color: #5ea2ef;
+
+        .logo-cybercrow {
+            width: 170px;
+            margin-bottom: -35px;
         }
+
+        .gos-title {
+            font-family: 'Orbitron', Arial, sans-serif;
+            font-size: 3.1rem;
+            font-weight: 700;
+            letter-spacing: 3px;
+            color: var(--accent);
+            text-shadow: var(--neon-shadow);
+            display: inline-block;
+            margin-top: 8px;
+            position: relative;
+            z-index: 1;
+        }
+
         nav {
-            margin: 20px 0 0 0;
+            margin: 25px 0 0 0;
         }
+
         nav a {
-            color: #d0e3ff;
+            color: var(--cyber);
             text-decoration: none;
-            margin: 0 18px;
+            margin: 0 16px;
             font-weight: 600;
-            font-size: 1.08rem;
-            transition: color .2s;
+            font-size: 1.05rem;
+            padding-bottom: 3px;
+            border-bottom: 2px solid transparent;
+            transition: color .2s, border .2s;
         }
+
         nav a:hover {
-            color: #5ea2ef;
+            color: #fff;
+            border-bottom: 2px solid var(--accent);
         }
+
         main {
-            max-width: 950px;
-            margin: 48px auto 0 auto;
-            padding: 32px 24px;
-            background: rgba(30, 47, 91, 0.96);
+            margin-top: 30px;
+        }
+
+        .glass {
+            background: var(--glass-bg);
             border-radius: 22px;
-            box-shadow: 0 6px 36px rgba(0,0,0,0.13);
+            box-shadow: 0 4px 36px rgba(21,32,57,0.16);
+            padding: 38px 36px;
+            margin-bottom: 40px;
+            position: relative;
+            overflow: hidden;
+            transition: box-shadow .22s;
         }
-        section {
-            margin-bottom: 42px;
+        .glass:hover {
+            box-shadow: 0 6px 52px var(--accent);
         }
-        h1, h2 {
-            color: #5ea2ef;
+
+        h1, h2, h3 {
+            font-family: 'Orbitron', Arial, sans-serif;
+            color: var(--accent);
         }
         h1 {
-            font-size: 2.2rem;
-            margin-bottom: 0.2em;
+            font-size: 2.1rem;
         }
         h2 {
-            font-size: 1.3rem;
-            margin-top: 1.2em;
-            margin-bottom: 0.5em;
+            font-size: 1.25rem;
+            margin-top: 1.4em;
+            margin-bottom: 0.6em;
         }
+        h3 {
+            font-size: 1.13rem;
+            color: var(--cyber);
+        }
+
         .cta {
             display: inline-block;
-            margin-top: 18px;
-            padding: 14px 36px;
+            margin-top: 28px;
+            padding: 16px 38px;
             font-size: 1.08rem;
-            background: #183d7a;
-            color: #eaf1fa;
-            border-radius: 12px;
-            text-decoration: none;
+            background: var(--accent);
+            color: #0b1225;
+            border-radius: 16px;
             font-weight: bold;
             letter-spacing: 1px;
-            box-shadow: 0 2px 14px rgba(25,62,122,.18);
+            box-shadow: 0 0 12px #34e4ff55;
+            text-decoration: none;
             transition: background .2s, color .2s;
         }
         .cta:hover {
-            background: #5ea2ef;
-            color: #101933;
+            background: var(--cyber);
+            color: #142340;
+        }
+        ul {
+            list-style: disc inside;
+            padding-left: 10px;
         }
         footer {
-            margin-top: 48px;
+            margin-top: 36px;
             text-align: center;
-            padding: 26px 0 8px 0;
-            font-size: 0.99rem;
-            color: #7b91b2;
+            padding: 28px 0 15px 0;
+            font-size: 1.02rem;
+            color: #90bdd7;
+            background: linear-gradient(90deg, #0b1225 60%, #182142 100%);
+            border-radius: 18px 18px 0 0;
+            box-shadow: 0 -2px 18px #101933a0;
         }
-        @media (max-width: 650px) {
-            main {
-                padding: 18px 4vw;
-            }
-            .logo {
-                font-size: 1.5rem;
-            }
+
+        @media (max-width: 720px) {
+            .container {padding: 18px 0 60px 0;}
+            .glass {padding: 20px 10px;}
+            .gos-title {font-size: 2rem;}
+            .logo-cybercrow {width: 110px;}
+        }
+
+        /* Neon effect for cybercrow SVG */
+        .neon-glow {
+            filter: drop-shadow(0 0 12px #57d6ff) drop-shadow(0 0 8px #1a6380);
         }
     </style>
 </head>
 <body>
     <header>
-        <div class="logo">GOS</div>
+        <!-- Corvo cibernético pousado no letreiro GOS -->
+        <svg class="logo-cybercrow neon-glow" viewBox="0 0 110 100">
+            <!-- GOS Letreiro -->
+            <text x="16" y="92" font-family="Orbitron, Arial, sans-serif" font-size="40" font-weight="bold" fill="#57d6ff" textLength="78">GOS</text>
+            <!-- Corvo estilizado pousado -->
+            <g>
+                <ellipse cx="54" cy="38" rx="18" ry="10" fill="#111f2b" stroke="#57d6ff" stroke-width="1.5"/>
+                <ellipse cx="44" cy="26" rx="8" ry="13" fill="#232d46" stroke="#57d6ff" stroke-width="1"/>
+                <ellipse cx="49" cy="22" rx="4.2" ry="6" fill="#203042"/>
+                <ellipse cx="52" cy="30" rx="4" ry="4" fill="#1bd7f5" />
+                <rect x="58" y="36" width="16" height="4.5" rx="2.3" fill="#253449" stroke="#57d6ff" stroke-width="1"/>
+                <ellipse cx="41" cy="13" rx="2.5" ry="2" fill="#a3eaff"/>
+                <ellipse cx="42" cy="14.5" rx="0.7" ry="0.7" fill="#222"/>
+                <!-- Bico -->
+                <polygon points="33,19 39,19 36,23" fill="#b5fcff" stroke="#57d6ff" stroke-width="0.3"/>
+            </g>
+        </svg>
+        <div class="gos-title">Governance of Cyber Systems</div>
         <nav>
             <a href="#cyber">Cibersegurança</a>
             <a href="#threat">Threat Intelligence</a>
@@ -106,56 +184,54 @@
             <a href="#contact">Contato</a>
         </nav>
     </header>
-
-    <main>
-        <section>
-            <h1>Governance of Cyber Systems</h1>
-            <p>Excelência em proteção, inteligência e confiança para o seu ambiente digital.</p>
-        </section>
-
-        <section id="cyber">
-            <h2>Cibersegurança: O Pilar da Confiança Digital</h2>
-            <p>
-                Em um mundo onde dados são o novo ativo mais valioso, a cibersegurança tornou-se essencial para empresas de todos os portes. A GOS atua na proteção proativa dos ativos digitais, prevenindo ataques, vazamentos e interrupções que podem comprometer negócios e reputações.
-                <br><br>
-                Nossas soluções envolvem desde análise de vulnerabilidades, implementação de políticas robustas de segurança, até monitoramento contínuo de ameaças. Trabalhamos para garantir a integridade, a confidencialidade e a disponibilidade das informações, sustentando o crescimento seguro das organizações em um cenário digital dinâmico e em constante evolução.
-            </p>
-        </section>
-
-        <section id="threat">
-            <h2>Threat Intelligence: Antecipação e Resposta Rápida</h2>
-            <p>
-                A inteligência de ameaças (Threat Intelligence) é fundamental para detectar riscos antes que causem danos. A equipe da GOS monitora, analisa e interpreta sinais de ameaças cibernéticas, identificando padrões de ataque e antecipando movimentos de agentes maliciosos.
-                <br><br>
-                Com essa abordagem, é possível reagir de forma rápida e precisa a incidentes, além de adaptar defesas de acordo com o cenário de ameaças mais recente. Isso eleva o nível de proteção e permite a tomada de decisão estratégica baseada em evidências concretas.
-            </p>
-        </section>
-
-        <section id="services">
-            <h2>Nossos Serviços</h2>
-            <ul>
-                <li>Monitoramento de Segurança 24x7</li>
-                <li>Análise e Gestão de Vulnerabilidades</li>
-                <li>Threat Intelligence e Resposta a Incidentes</li>
-                <li>Consultoria em Governança e Compliance</li>
-                <li>Treinamentos em Cibersegurança</li>
-            </ul>
-            <a href="#contact" class="cta">Fale com a GOS</a>
-        </section>
-
-        <section id="contact">
-            <h2>Contato</h2>
-            <p>
-                Pronto para elevar a segurança da sua empresa? Entre em contato com nossa equipe.<br>
-                <b>Email:</b> contato@gos-cyber.com<br>
-                <b>LinkedIn:</b> linkedin.com/company/gos-cyber
-            </p>
-        </section>
-    </main>
-
+    <div class="container">
+        <main>
+            <section class="glass">
+                <h1>Bem-vindo à GOS</h1>
+                <h3>Governance of Cyber Systems</h3>
+                <p>
+                    Inovação, confiança e inteligência em cibersegurança. Seu futuro digital protegido por quem entende o presente e antecipa o amanhã.
+                </p>
+            </section>
+            <section id="cyber" class="glass">
+                <h2>O Valor da Cibersegurança</h2>
+                <p>
+                    Cibersegurança não é mais uma opção, mas uma necessidade para qualquer empresa ou organização moderna. A GOS oferece soluções avançadas para proteção de dados, infraestruturas críticas e processos digitais. Nosso compromisso é blindar sua operação contra ataques, invasões e fraudes, reduzindo riscos e garantindo a continuidade dos negócios. <br><br>
+                    Com monitoramento contínuo, análise comportamental e políticas adaptáveis, trabalhamos para que a segurança seja parte estratégica do seu crescimento.
+                </p>
+            </section>
+            <section id="threat" class="glass">
+                <h2>Threat Intelligence: Antecipe e Neutralize Ameaças</h2>
+                <p>
+                    Threat Intelligence é a arte de identificar, entender e neutralizar ameaças antes que elas comprometam sua empresa. Utilizando fontes abertas, deep web e dados proprietários, nossa equipe detecta padrões, investiga comportamentos e entrega insights acionáveis.
+                    <br><br>
+                    O resultado: capacidade de resposta rápida, redução de impactos e postura proativa contra adversários digitais cada vez mais sofisticados.
+                </p>
+            </section>
+            <section id="services" class="glass">
+                <h2>Serviços GOS</h2>
+                <ul>
+                    <li>Monitoramento SOC 24/7 e resposta a incidentes</li>
+                    <li>Threat Intelligence as a Service</li>
+                    <li>Testes de intrusão e Red Team</li>
+                    <li>Gestão de vulnerabilidades e compliance</li>
+                    <li>Consultoria estratégica em cibersegurança</li>
+                </ul>
+                <a href="#contact" class="cta">Solicite uma avaliação</a>
+            </section>
+            <section id="contact" class="glass">
+                <h2>Contato</h2>
+                <p>
+                    Pronto para levar sua segurança ao próximo nível?<br>
+                    <b>Email:</b> contato@gos-cyber.com<br>
+                    <b>LinkedIn:</b> linkedin.com/company/gos-cyber
+                </p>
+            </section>
+        </main>
+    </div>
     <footer>
-        © 2025 GOS - Governance of Cyber Systems.<br>
-        Protegendo o futuro digital.
+        © 2025 GOS - Governance of Cyber Systems. &nbsp; | &nbsp; Seu parceiro estratégico em cibersegurança.<br>
+        <span style="font-size:1.5em;letter-spacing:2px;color:#57d6ff;">&#9679; &#11088; &#9679;</span>
     </footer>
 </body>
 </html>
