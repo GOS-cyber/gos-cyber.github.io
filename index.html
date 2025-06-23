@@ -1,207 +1,456 @@
 <!DOCTYPE html>
-<html lang="pt-br">
+<html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>GOS - Governance of Cyber Systems</title>
-  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&family=Orbitron:wght@700&display=swap" rel="stylesheet">
-  <style>
-    :root {
-      --primary: #18191f;
-      --secondary: #f5f7fa;
-      --accent: #14b8a6;
-      --neutral: #777;
-    }
-    html, body {
-      margin: 0;
-      padding: 0;
-      font-family: 'Montserrat', Arial, sans-serif;
-      background: var(--secondary);
-      color: var(--primary);
-      scroll-behavior: smooth;
-    }
-    header {
-      background: #fff;
-      padding: 64px 0 40px 0;
-      text-align: center;
-      position: relative;
-      box-shadow: 0 8px 28px -10px #d7dbe6;
-    }
-    .logo-row {
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      gap: 22px;
-      margin-bottom: 22px;
-    }
-    .cybercrow-svg {
-      height: 68px;
-      width: auto;
-    }
-    .gos-title {
-      font-family: 'Orbitron', Arial, sans-serif;
-      font-size: 2.4rem;
-      color: var(--primary);
-      font-weight: 700;
-      letter-spacing: 2.5px;
-    }
-    nav {
-      margin: 32px 0 0 0;
-    }
-    nav a {
-      color: var(--neutral);
-      text-decoration: none;
-      margin: 0 18px;
-      font-weight: 700;
-      font-size: 1.05rem;
-      padding: 7px 0;
-      border-bottom: 2px solid transparent;
-      transition: color .15s, border .15s;
-    }
-    nav a:hover {
-      color: var(--accent);
-      border-bottom: 2px solid var(--accent);
-    }
-    section {
-      max-width: 980px;
-      margin: 0 auto;
-      padding: 80px 28px;
-      background: #fff;
-      border-radius: 30px;
-      box-shadow: 0 4px 32px rgba(30,36,61,.09);
-      margin-top: 50px;
-    }
-    section:not(:first-of-type) {
-      margin-top: 35px;
-    }
-    h2 {
-      font-family: 'Orbitron', Arial, sans-serif;
-      color: var(--accent);
-      font-size: 2rem;
-      margin-bottom: 24px;
-      letter-spacing: 1.5px;
-    }
-    .subtitle {
-      color: var(--neutral);
-      font-size: 1.13rem;
-      margin-top: -18px;
-      margin-bottom: 34px;
-    }
-    p, ul {
-      color: var(--primary);
-      font-size: 1.15rem;
-      line-height: 1.7;
-      margin-bottom: 16px;
-    }
-    ul {
-      padding-left: 22px;
-      text-align: left;
-    }
-    .cta-btn {
-      margin-top: 36px;
-      background: var(--accent);
-      color: #fff;
-      font-weight: bold;
-      font-size: 1.11rem;
-      padding: 16px 50px;
-      border: none;
-      border-radius: 16px;
-      box-shadow: 0 4px 18px #14b8a644;
-      text-decoration: none;
-      letter-spacing: 1px;
-      transition: background .18s;
-      cursor: pointer;
-      display: inline-block;
-    }
-    .cta-btn:hover {
-      background: #0d9488;
-    }
-    footer {
-      margin-top: 72px;
-      text-align: center;
-      color: #a6a6aa;
-      font-size: 1.03rem;
-      padding: 38px 0 20px 0;
-      background: none;
-      letter-spacing: 1.2px;
-    }
-    @media (max-width: 700px) {
-      section { padding: 40px 4vw; }
-      .gos-title { font-size: 1.28rem; }
-      header { padding: 40px 0 26px 0; }
-    }
-  </style>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CyberShield | Advanced Cyber Security Solutions</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        /* Custom CSS for effects Tailwind can't handle */
+        .gradient-text {
+            background: linear-gradient(90deg, #3b82f6 0%, #10b981 50%, #3b82f6 100%);
+            -webkit-background-clip: text;
+            background-clip: text;
+            color: transparent;
+            background-size: 200% auto;
+            animation: gradient 3s linear infinite;
+        }
+        
+        @keyframes gradient {
+            0% { background-position: 0% center; }
+            100% { background-position: 200% center; }
+        }
+        
+        .cyber-card {
+            background: rgba(15, 23, 42, 0.7);
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(59, 130, 246, 0.2);
+            transition: all 0.3s ease;
+        }
+        
+        .cyber-card:hover {
+            border-color: rgba(59, 130, 246, 0.5);
+            transform: translateY(-5px);
+            box-shadow: 0 10px 25px rgba(16, 185, 129, 0.1);
+        }
+        
+        .hacker-effect::after {
+            content: "|";
+            animation: blink 1s infinite;
+        }
+        
+        @keyframes blink {
+            0%, 100% { opacity: 1; }
+            50% { opacity: 0; }
+        }
+        
+        .terminal-code {
+            font-family: 'Courier New', monospace;
+            background: #0f172a;
+            border-left: 3px solid #3b82f6;
+        }
+        
+        .glow-effect {
+            box-shadow: 0 0 15px rgba(59, 130, 246, 0.5);
+        }
+        
+        .cyber-input {
+            background: rgba(15, 23, 42, 0.5);
+            border: 1px solid rgba(59, 130, 246, 0.3);
+            transition: all 0.3s ease;
+        }
+        
+        .cyber-input:focus {
+            outline: none;
+            border-color: #3b82f6;
+            box-shadow: 0 0 0 3px rgba(59, 130, 246, 0.2);
+        }
+        
+        .hexagon {
+            clip-path: polygon(50% 0%, 100% 25%, 100% 75%, 50% 100%, 0% 75%, 0% 25%);
+        }
+    </style>
 </head>
-<body>
-  <header>
-    <div class="logo-row">
-      <!-- Cyber crow (substitua pelo SVG da sua identidade visual se quiser) -->
-      <svg class="cybercrow-svg" viewBox="0 0 80 60">
-        <ellipse cx="40" cy="33" rx="20" ry="12" fill="#e4eaf3" stroke="#14b8a6" stroke-width="2"/>
-        <ellipse cx="27" cy="17" rx="9" ry="15" fill="#e4eaf3" stroke="#14b8a6" stroke-width="2"/>
-        <ellipse cx="32" cy="10" rx="3.3" ry="6" fill="#b1ded8"/>
-        <ellipse cx="38" cy="20" rx="3.5" ry="3.5" fill="#14b8a6" />
-        <polygon points="15,21 23,21 19,26" fill="#14b8a6"/>
-      </svg>
-      <div class="gos-title">GOS<br>Governance of Cyber Systems</div>
+<body class="bg-gray-900 text-gray-100 font-sans overflow-x-hidden">
+    <!-- Animated Background -->
+    <div class="fixed inset-0 -z-10 overflow-hidden">
+        <div class="absolute inset-0 bg-gradient-to-br from-gray-900 via-blue-900/20 to-gray-900"></div>
+        <div class="absolute inset-0 opacity-20" style="background-image: url('data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSI1IiBoZWlnaHQ9IjUiPgo8cmVjdCB3aWR0aD0iNSIgaGVpZ2h0PSI1IiBmaWxsPSIjMDAwMDAwIj48L3JlY3Q+CjxwYXRoIGQ9Ik0wIDVMNSAwWk02IDRMNCA2Wk0tMSAxTDEgLTFaIiBzdHJva2U9IiMxMTExMTEiIHN0cm9rZS13aWR0aD0iMSI+PC9wYXRoPgo8L3N2Zz4=');"></div>
+        <div class="absolute inset-0 bg-[radial-gradient(circle_at_center,rgba(59,130,246,0.1)_0%,transparent_70%)]"></div>
     </div>
-    <nav>
-      <a href="#sobre">Sobre</a>
-      <a href="#cyber">Cibersegurança</a>
-      <a href="#threat">Threat Intelligence</a>
-      <a href="#servicos">Serviços</a>
-      <a href="#contato">Contato</a>
-    </nav>
-  </header>
 
-  <section id="sobre">
-    <h2>Bem-vindo à GOS</h2>
-    <div class="subtitle">Excelência em proteção digital e inteligência contra ameaças.</div>
-    <p>
-      A GOS - Governance of Cyber Systems nasceu para oferecer soluções sofisticadas em cibersegurança e inteligência digital. Nosso símbolo, o corvo cibernético, representa vigilância, estratégia e adaptação, qualidades essenciais para proteger ambientes corporativos em um mundo hiperconectado.
-    </p>
-  </section>
+    <!-- Header/Navigation -->
+    <header class="relative z-50">
+        <nav class="container mx-auto px-6 py-4 flex justify-between items-center">
+            <div class="flex items-center space-x-2">
+                <div class="hexagon w-10 h-10 bg-blue-500 flex items-center justify-center glow-effect">
+                    <i class="fas fa-shield-alt text-white text-xl"></i>
+                </div>
+                <span class="text-2xl font-bold gradient-text">CyberShield</span>
+            </div>
+            
+            <div class="hidden md:flex space-x-8">
+                <a href="#solutions" class="hover:text-blue-400 transition">Solutions</a>
+                <a href="#services" class="hover:text-blue-400 transition">Services</a>
+                <a href="#about" class="hover:text-blue-400 transition">About</a>
+                <a href="#contact" class="hover:text-blue-400 transition">Contact</a>
+            </div>
+            
+            <div class="flex items-center space-x-4">
+                <a href="#" class="hidden md:block px-4 py-2 rounded-md bg-gradient-to-r from-blue-600 to-emerald-500 hover:from-blue-500 hover:to-emerald-400 transition text-white font-medium">Get Protected</a>
+                <button id="mobile-menu-button" class="md:hidden text-gray-300 hover:text-white focus:outline-none">
+                    <i class="fas fa-bars text-2xl"></i>
+                </button>
+            </div>
+        </nav>
+        
+        <!-- Mobile Menu -->
+        <div id="mobile-menu" class="hidden md:hidden absolute top-20 left-0 right-0 bg-gray-800/95 backdrop-blur-sm py-4 px-6 shadow-lg">
+            <div class="flex flex-col space-y-4">
+                <a href="#solutions" class="hover:text-blue-400 transition">Solutions</a>
+                <a href="#services" class="hover:text-blue-400 transition">Services</a>
+                <a href="#about" class="hover:text-blue-400 transition">About</a>
+                <a href="#contact" class="hover:text-blue-400 transition">Contact</a>
+                <a href="#" class="px-4 py-2 rounded-md bg-gradient-to-r from-blue-600 to-emerald-500 hover:from-blue-500 hover:to-emerald-400 transition text-white font-medium text-center">Get Protected</a>
+            </div>
+        </div>
+    </header>
 
-  <section id="cyber">
-    <h2>Cibersegurança</h2>
-    <div class="subtitle">Confiança e robustez para empresas do presente e do futuro.</div>
-    <p>
-      Segurança digital não é apenas tecnologia, mas um compromisso estratégico com a proteção de dados e ativos críticos. Apoiamos nossos clientes com políticas avançadas, monitoramento contínuo e resposta ágil a incidentes. Com a GOS, sua organização estará sempre um passo à frente de ameaças, vazamentos e riscos digitais.
-    </p>
-  </section>
+    <!-- Hero Section -->
+    <section class="relative pt-24 pb-32 px-6">
+        <div class="container mx-auto flex flex-col md:flex-row items-center">
+            <div class="md:w-1/2 mb-12 md:mb-0">
+                <h1 class="text-4xl md:text-6xl font-bold mb-6 leading-tight">
+                    <span class="gradient-text">Advanced Cyber Security</span> <br>
+                    <span class="hacker-effect">For Your Digital Assets</span>
+                </h1>
+                <p class="text-lg text-gray-300 mb-8 max-w-lg">
+                    Protect your business from evolving cyber threats with our cutting-edge security solutions. 
+                    Our team of experts provides 24/7 monitoring and rapid response to keep your data safe.
+                </p>
+                <div class="flex flex-col sm:flex-row space-y-4 sm:space-y-0 sm:space-x-4">
+                    <a href="#" class="px-8 py-3 rounded-md bg-gradient-to-r from-blue-600 to-emerald-500 hover:from-blue-500 hover:to-emerald-400 transition text-white font-bold text-center">Get Started</a>
+                    <a href="#solutions" class="px-8 py-3 rounded-md border border-blue-500 hover:bg-blue-500/10 transition text-blue-400 font-bold text-center">Learn More</a>
+                </div>
+                
+                <div class="mt-12 flex items-center space-x-6">
+                    <div class="flex -space-x-2">
+                        <img src="https://randomuser.me/api/portraits/women/44.jpg" class="w-10 h-10 rounded-full border-2 border-blue-500" alt="Client">
+                        <img src="https://randomuser.me/api/portraits/men/32.jpg" class="w-10 h-10 rounded-full border-2 border-blue-500" alt="Client">
+                        <img src="https://randomuser.me/api/portraits/women/68.jpg" class="w-10 h-10 rounded-full border-2 border-blue-500" alt="Client">
+                    </div>
+                    <div>
+                        <p class="text-sm text-gray-400">Trusted by 500+ companies worldwide</p>
+                        <div class="flex space-x-1 text-yellow-400">
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star-half-alt"></i>
+                            <span class="text-gray-300 ml-1">4.8/5</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="md:w-1/2 relative">
+                <div class="cyber-card rounded-xl p-6 max-w-md mx-auto">
+                    <div class="terminal-code p-4 mb-6 rounded">
+                        <p class="text-green-400">$ cyber-shield scan --threat-level=high</p>
+                        <p class="text-gray-300 mt-2">> Initializing security protocols...</p>
+                        <p class="text-gray-300">> Analyzing network vulnerabilities...</p>
+                        <p class="text-blue-400">> Detected 0 critical threats</p>
+                        <p class="text-emerald-400 font-bold">> System SECURE [100%]</p>
+                    </div>
+                    
+                    <div class="grid grid-cols-2 gap-4">
+                        <div class="cyber-card p-4 rounded-lg flex items-center">
+                            <div class="w-10 h-10 rounded-full bg-blue-500/20 flex items-center justify-center mr-3">
+                                <i class="fas fa-lock text-blue-400"></i>
+                            </div>
+                            <div>
+                                <p class="text-sm text-gray-400">Encryption</p>
+                                <p class="font-bold">AES-256</p>
+                            </div>
+                        </div>
+                        <div class="cyber-card p-4 rounded-lg flex items-center">
+                            <div class="w-10 h-10 rounded-full bg-emerald-500/20 flex items-center justify-center mr-3">
+                                <i class="fas fa-shield-alt text-emerald-400"></i>
+                            </div>
+                            <div>
+                                <p class="text-sm text-gray-400">Protection</p>
+                                <p class="font-bold">99.9%</p>
+                            </div>
+                        </div>
+                        <div class="cyber-card p-4 rounded-lg flex items-center">
+                            <div class="w-10 h-10 rounded-full bg-purple-500/20 flex items-center justify-center mr-3">
+                                <i class="fas fa-clock text-purple-400"></i>
+                            </div>
+                            <div>
+                                <p class="text-sm text-gray-400">Response</p>
+                                <p class="font-bold">24/7</p>
+                            </div>
+                        </div>
+                        <div class="cyber-card p-4 rounded-lg flex items-center">
+                            <div class="w-10 h-10 rounded-full bg-red-500/20 flex items-center justify-center mr-3">
+                                <i class="fas fa-bug text-red-400"></i>
+                            </div>
+                            <div>
+                                <p class="text-sm text-gray-400">Threats</p>
+                                <p class="font-bold">Blocked</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="absolute -top-10 -left-10 w-32 h-32 bg-blue-500/10 rounded-full filter blur-xl"></div>
+                <div class="absolute -bottom-10 -right-10 w-40 h-40 bg-emerald-500/10 rounded-full filter blur-xl"></div>
+            </div>
+        </div>
+    </section>
 
-  <section id="threat">
-    <h2>Threat Intelligence</h2>
-    <div class="subtitle">Antecipe riscos, neutralize ataques e fortaleça sua defesa.</div>
-    <p>
-      A inteligência de ameaças permite identificar padrões maliciosos, analisar comportamentos e gerar insights acionáveis para prevenir ataques. Nossos especialistas monitoram fontes abertas, deep web e ambientes internos, entregando relatórios claros e ações práticas para garantir a segurança total do seu ambiente digital.
-    </p>
-  </section>
+    <!-- Trusted By Section -->
+    <section class="py-12 bg-gray-800/50 backdrop-blur-sm">
+        <div class="container mx-auto px-6">
+            <p class="text-center text-gray-400 mb-8">TRUSTED BY INDUSTRY LEADERS</p>
+            <div class="flex flex-wrap justify-center items-center gap-12 opacity-80 hover:opacity-100 transition">
+                <img src="https://via.placeholder.com/150x60/1e293b/3b82f6?text=TechCorp" class="h-8" alt="TechCorp">
+                <img src="https://via.placeholder.com/150x60/1e293b/3b82f6?text=GlobalBank" class="h-10" alt="GlobalBank">
+                <img src="https://via.placeholder.com/150x60/1e293b/3b82f6?text=SecureNet" class="h-12" alt="SecureNet">
+                <img src="https://via.placeholder.com/150x60/1e293b/3b82f6?text=DataFort" class="h-8" alt="DataFort">
+                <img src="https://via.placeholder.com/150x60/1e293b/3b82f6?text=CloudSafe" class="h-10" alt="CloudSafe">
+            </div>
+        </div>
+    </section>
 
-  <section id="servicos">
-    <h2>Serviços</h2>
-    <ul>
-      <li>Monitoramento SOC 24/7</li>
-      <li>Threat Intelligence as a Service</li>
-      <li>Resposta a incidentes e análise forense</li>
-      <li>Testes de intrusão e Red Team</li>
-      <li>Gestão de vulnerabilidades e compliance</li>
-      <li>Consultoria estratégica em cibersegurança</li>
-    </ul>
-    <a href="#contato" class="cta-btn">Quero saber mais</a>
-  </section>
+    <!-- Solutions Section -->
+    <section id="solutions" class="py-20 px-6">
+        <div class="container mx-auto">
+            <div class="text-center mb-16">
+                <h2 class="text-3xl md:text-4xl font-bold mb-4">Comprehensive <span class="gradient-text">Security Solutions</span></h2>
+                <p class="text-gray-400 max-w-2xl mx-auto">Our multi-layered approach ensures complete protection across all attack vectors and digital assets.</p>
+            </div>
+            
+            <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+                <div class="cyber-card p-8 rounded-xl">
+                    <div class="w-14 h-14 bg-blue-500/10 rounded-lg flex items-center justify-center mb-6">
+                        <i class="fas fa-network-wired text-blue-400 text-2xl"></i>
+                    </div>
+                    <h3 class="text-xl font-bold mb-3">Network Security</h3>
+                    <p class="text-gray-400 mb-4">Advanced firewall protection, intrusion detection, and prevention systems to safeguard your network infrastructure.</p>
+                    <a href="#" class="text-blue-400 hover:text-blue-300 flex items-center">
+                        Learn more <i class="fas fa-arrow-right ml-2 text-sm"></i>
+                    </a>
+                </div>
+                
+                <div class="cyber-card p-8 rounded-xl">
+                    <div class="w-14 h-14 bg-emerald-500/10 rounded-lg flex items-center justify-center mb-6">
+                        <i class="fas fa-cloud text-emerald-400 text-2xl"></i>
+                    </div>
+                    <h3 class="text-xl font-bold mb-3">Cloud Security</h3>
+                    <p class="text-gray-400 mb-4">End-to-end protection for your cloud environments with continuous monitoring and threat intelligence.</p>
+                    <a href="#" class="text-blue-400 hover:text-blue-300 flex items-center">
+                        Learn more <i class="fas fa-arrow-right ml-2 text-sm"></i>
+                    </a>
+                </div>
+                
+                <div class="cyber-card p-8 rounded-xl">
+                    <div class="w-14 h-14 bg-purple-500/10 rounded-lg flex items-center justify-center mb-6">
+                        <i class="fas fa-user-shield text-purple-400 text-2xl"></i>
+                    </div>
+                    <h3 class="text-xl font-bold mb-3">Endpoint Protection</h3>
+                    <p class="text-gray-400 mb-4">Comprehensive security for all devices with AI-powered threat detection and response capabilities.</p>
+                    <a href="#" class="text-blue-400 hover:text-blue-300 flex items-center">
+                        Learn more <i class="fas fa-arrow-right ml-2 text-sm"></i>
+                    </a>
+                </div>
+                
+                <div class="cyber-card p-8 rounded-xl">
+                    <div class="w-14 h-14 bg-red-500/10 rounded-lg flex items-center justify-center mb-6">
+                        <i class="fas fa-database text-red-400 text-2xl"></i>
+                    </div>
+                    <h3 class="text-xl font-bold mb-3">Data Protection</h3>
+                    <p class="text-gray-400 mb-4">Encryption, access control, and data loss prevention to secure your most valuable information assets.</p>
+                    <a href="#" class="text-blue-400 hover:text-blue-300 flex items-center">
+                        Learn more <i class="fas fa-arrow-right ml-2 text-sm"></i>
+                    </a>
+                </div>
+                
+                <div class="cyber-card p-8 rounded-xl">
+                    <div class="w-14 h-14 bg-yellow-500/10 rounded-lg flex items-center justify-center mb-6">
+                        <i class="fas fa-bug text-yellow-400 text-2xl"></i>
+                    </div>
+                    <h3 class="text-xl font-bold mb-3">Penetration Testing</h3>
+                    <p class="text-gray-400 mb-4">Simulated cyber attacks to identify vulnerabilities before malicious actors can exploit them.</p>
+                    <a href="#" class="text-blue-400 hover:text-blue-300 flex items-center">
+                        Learn more <i class="fas fa-arrow-right ml-2 text-sm"></i>
+                    </a>
+                </div>
+                
+                <div class="cyber-card p-8 rounded-xl">
+                    <div class="w-14 h-14 bg-indigo-500/10 rounded-lg flex items-center justify-center mb-6">
+                        <i class="fas fa-headset text-indigo-400 text-2xl"></i>
+                    </div>
+                    <h3 class="text-xl font-bold mb-3">24/7 SOC</h3>
+                    <p class="text-gray-400 mb-4">Security Operations Center providing continuous monitoring, threat hunting, and incident response.</p>
+                    <a href="#" class="text-blue-400 hover:text-blue-300 flex items-center">
+                        Learn more <i class="fas fa-arrow-right ml-2 text-sm"></i>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>
 
-  <section id="contato">
-    <h2>Contato</h2>
-    <div class="subtitle">Converse com nossos especialistas e transforme a segurança do seu negócio.</div>
-    <p>
-      <b>Email:</b> contato@gos-cyber.com<br>
-      <b>LinkedIn:</b> linkedin.com/company/gos-cyber
-    </p>
-  </section>
+    <!-- Stats Section -->
+    <section class="py-16 bg-gradient-to-r from-gray-900 to-blue-900/20">
+        <div class="container mx-auto px-6">
+            <div class="grid md:grid-cols-4 gap-8 text-center">
+                <div class="cyber-card p-6 rounded-xl">
+                    <p class="text-4xl font-bold gradient-text mb-2">500+</p>
+                    <p class="text-gray-400">Enterprise Clients</p>
+                </div>
+                <div class="cyber-card p-6 rounded-xl">
+                    <p class="text-4xl font-bold gradient-text mb-2">99.9%</p>
+                    <p class="text-gray-400">Threat Detection Rate</p>
+                </div>
+                <div class="cyber-card p-6 rounded-xl">
+                    <p class="text-4xl font-bold gradient-text mb-2">24/7</p>
+                    <p class="text-gray-400">Monitoring & Support</p>
+                </div>
+                <div class="cyber-card p-6 rounded-xl">
+                    <p class="text-4xl font-bold gradient-text mb-2">150+</p>
+                    <p class="text-gray-400">Security Experts</p>
+                </div>
+            </div>
+        </div>
+    </section>
 
-  <footer>
-    © 2025 GOS - Governance of Cyber Systems &nbsp;|&nbsp; Todos os direitos reservados.
-  </footer>
+    <!-- Services Section -->
+    <section id="services" class="py-20 px-6">
+        <div class="container mx-auto">
+            <div class="text-center mb-16">
+                <h2 class="text-3xl md:text-4xl font-bold mb-4">Our <span class="gradient-text">Security Services</span></h2>
+                <p class="text-gray-400 max-w-2xl mx-auto">Customized security services tailored to your organization's specific needs and risk profile.</p>
+            </div>
+            
+            <div class="grid md:grid-cols-2 gap-8">
+                <div class="cyber-card rounded-xl overflow-hidden">
+                    <div class="h-48 bg-gradient-to-r from-blue-600/20 to-emerald-500/20 flex items-center justify-center">
+                        <i class="fas fa-search text-6xl text-blue-400 opacity-30"></i>
+                    </div>
+                    <div class="p-8">
+                        <h3 class="text-2xl font-bold mb-4">Vulnerability Assessment</h3>
+                        <p class="text-gray-400 mb-6">Comprehensive scanning of your systems to identify security weaknesses and prioritize remediation efforts.</p>
+                        <ul class="space-y-3">
+                            <li class="flex items-start">
+                                <i class="fas fa-check-circle text-emerald-400 mt-1 mr-3"></i>
+                                <span class="text-gray-300">Automated and manual testing</span>
+                            </li>
+                            <li class="flex items-start">
+                                <i class="fas fa-check-circle text-emerald-400 mt-1 mr-3"></i>
+                                <span class="text-gray-300">Detailed risk scoring</span>
+                            </li>
+                            <li class="flex items-start">
+                                <i class="fas fa-check-circle text-emerald-400 mt-1 mr-3"></i>
+                                <span class="text-gray-300">Remediation guidance</span>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+                
+                <div class="cyber-card rounded-xl overflow-hidden">
+                    <div class="h-48 bg-gradient-to-r from-purple-600/20 to-blue-500/20 flex items-center justify-center">
+                        <i class="fas fa-user-ninja text-6xl text-purple-400 opacity-30"></i>
+                    </div>
+                    <div class="p-8">
+                        <h3 class="text-2xl font-bold mb-4">Red Team Operations</h3>
+                        <p class="text-gray-400 mb-6">Simulate real-world attacks to test your defenses, people, and processes against advanced adversaries.</p>
+                        <ul class="space-y-3">
+                            <li class="flex items-start">
+                                <i class="fas fa-check-circle text-emerald-400 mt-1 mr-3"></i>
+                                <span class="text-gray-300">Targeted attack simulations</span>
+                            </li>
+                            <li class="flex items-start">
+                                <i class="fas fa-check-circle text-emerald-400 mt-1 mr-3"></i>
+                                <span class="text-gray-300">Social engineering testing</span>
+                            </li>
+                            <li class="flex items-start">
+                                <i class="fas fa-check-circle text-emerald-400 mt-1 mr-3"></i>
+                                <span class="text-gray-300">Physical security assessments</span>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+                
+                <div class="cyber-card rounded-xl overflow-hidden">
+                    <div class="h-48 bg-gradient-to-r from-red-600/20 to-yellow-500/20 flex items-center justify-center">
+                        <i class="fas fa-fire-extinguisher text-6xl text-red-400 opacity-30"></i>
+                    </div>
+                    <div class="p-8">
+                        <h3 class="text-2xl font-bold mb-4">Incident Response</h3>
+                        <p class="text-gray-400 mb-6">Rapid containment, investigation, and remediation of security incidents with minimal business disruption.</p>
+                        <ul class="space-y-3">
+                            <li class="flex items-start">
+                                <i class="fas fa-check-circle text-emerald-400 mt-1 mr-3"></i>
+                                <span class="text-gray-300">24/7 emergency response</span>
+                            </li>
+                            <li class="flex items-start">
+                                <i class="fas fa-check-circle text-emerald-400 mt-1 mr-3"></i>
+                                <span class="text-gray-300">Forensic analysis</span>
+                            </li>
+                            <li class="flex items-start">
+                                <i class="fas fa-check-circle text-emerald-400 mt-1 mr-3"></i>
+                                <span class="text-gray-300">Post-incident recovery</span>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+                
+                <div class="cyber-card rounded-xl overflow-hidden">
+                    <div class="h-48 bg-gradient-to-r from-emerald-600/20 to-blue-500/20 flex items-center justify-center">
+                        <i class="fas fa-graduation-cap text-6xl text-emerald-400 opacity-30"></i>
+                    </div>
+                    <div class="p-8">
+                        <h3 class="text-2xl font-bold mb-4">Security Training</h3>
+                        <p class="text-gray-400 mb-6">Comprehensive security awareness programs to educate your workforce and build a human firewall.</p>
+                        <ul class="space-y-3">
+                            <li class="flex items-start">
+                                <i class="fas fa-check-circle text-emerald-400 mt-1 mr-3"></i>
+                                <span class="text-gray-300">Phishing simulations</span>
+                            </li>
+                            <li class="flex items-start">
+                                <i class="fas fa-check-circle text-emerald-400 mt-1 mr-3"></i>
+                                <span class="text-gray-300">Role-based training</span>
+                            </li>
+                            <li class="flex items-start">
+                                <i class="fas fa-check-circle text-emerald-400 mt-1 mr-3"></i>
+                                <span class="text-gray-300">Executive briefings</span>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- About Section -->
+    <section id="about" class="py-20 px-6 bg-gray-800/30 backdrop-blur-sm">
+        <div class="container mx-auto">
+            <div class="flex flex-col lg:flex-row items-center">
+                <div class="lg:w-1/2 mb-12 lg:mb-0 lg:pr-12">
+                    <h2 class="text-3xl md:text-4xl font-bold mb-6">About <span class="gradient-text">CyberShield</span></h2>
+                    <p class="text-gray-400 mb-6">
+                        Founded in 2015 by a team of cybersecurity veterans, CyberShield has grown to become a trusted partner for organizations 
+                        seeking to protect their digital assets from evolving threats.
+                    </p>
+                    <p class="text-gray-400 mb-8">
+                        Our mission is to deliver innovative, effective security solutions that adapt to the changing threat landscape, 
+                        enabling our clients to focus on their core business with confidence.
+                    </p>
+                    
+                    <div class="grid grid-cols-2 gap-6">
+                        <div>
+                            <h3 class="
 </body>
 </html>
